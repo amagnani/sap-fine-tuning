@@ -19,7 +19,6 @@ spec:
     steps:
     - - name: mypredictor
         template: mycodeblock1
-
   - name: mycodeblock1
     inputs:
       artifacts:  # placeholder for cloud storage attachements
@@ -28,5 +27,8 @@ spec:
     container:
       image: docker.io/amagnani/house-price:03 # Your docker image name
       command: ["/bin/sh", "-c"]
+      env:
+        - name: DT_MAX_DEPTH # name of the environment variable inside Docker container
+          value: "3" # will make it as variable later
       args:
         - "python /app/src/main.py"
