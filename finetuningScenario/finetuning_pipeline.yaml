@@ -23,7 +23,6 @@ spec:
   - name: mycodeblock1
     container:
       image: docker.io/amagnani/house-price:01 # Your docker image name
-      command:
-        - ["/bin/sh", "-c"]
+      command: ["/bin/sh", "-c"]
       args:
-       - "python /app/src/main.py"
+        - "python /app/src/main.py"
