@@ -1,15 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: WorkflowTemplate
 metadata:
-  name: finetuning-pipeline # Executable ID (max length 64 lowercase-hyphen-separated), please modify this to any value if you are not the only user of your SAP AI Core instance. Example: `first-pipeline-1234`
+  name: code-pipeline # executable id, must be unique across all your workflows (YAML files), please modify this to any value (e.g. code-pipeline-12345) if you are not the only user of your SAP AI Core instance.
   annotations:
-    scenarios.ai.sap.com/description: "Fine tuning Example"
-    scenarios.ai.sap.com/name: "Fine Tuning Test"
-    executables.ai.sap.com/description: "Simple House Price predictor"
-    executables.ai.sap.com/name: "Fine Tuning Pipeline"
+    scenarios.ai.sap.com/description: "Tutorial to add custom code to SAP AI Core"
+    scenarios.ai.sap.com/name: "Code (Tutorial)"
+    executables.ai.sap.com/description: "Trains model on median house prices"
+    executables.ai.sap.com/name: "House Price (Sklearn Example)"
   labels:
-    scenarios.ai.sap.com/id: "learning"
-    ai.sap.com/version: "2.0"
+    scenarios.ai.sap.com/id: "learning-code"
+    ai.sap.com/version: "1.0"
 spec:
   imagePullSecrets:
     - name: amagnani # your docker registry secret
