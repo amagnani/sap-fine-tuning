@@ -21,8 +21,12 @@ spec:
         template: mycodeblock1
 
   - name: mycodeblock1
+    inputs:
+      artifacts:  # placeholder for cloud storage attachements
+        - name: housedataset # a name for the placeholder
+          path: /app/data/ # where to copy in the Dataset in the Docker image
     container:
-      image: docker.io/amagnani/house-price:01 # Your docker image name
+      image: docker.io/amagnani/house-price:03 # Your docker image name
       command: ["/bin/sh", "-c"]
       args:
         - "python /app/src/main.py"
