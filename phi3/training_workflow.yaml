@@ -7,8 +7,8 @@ metadata:
     scenarios.ai.sap.com/name: "fine-tune-phi3"
     executables.ai.sap.com/description: "Image segmentation training executable"
     executables.ai.sap.com/name: "phi3-finetune-exec"
-    artifacts.ai.sap.com/image-data.kind: "dataset"
-    artifacts.ai.sap.com/image-model-tutorial.kind: "model"
+    artifacts.ai.sap.com/inputdata.kind: "dataset"
+    artifacts.ai.sap.com/finetuned-model.kind: "model"
   labels:
     scenarios.ai.sap.com/id: "finetune-phi3"
     executables.ai.sap.com/id: "phi3-finetune"
