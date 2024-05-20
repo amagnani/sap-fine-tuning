@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: finetunephi32
+  annotations:
+    scenarios.ai.sap.com/description: "LLM fine tuning tutorial scenario"
+    scenarios.ai.sap.com/name: "fine-tune-phi32"
+    executables.ai.sap.com/description: "Image segmentation training executable"
+    executables.ai.sap.com/name: "phi32-finetune-exec"
+    artifacts.ai.sap.com/finetuned-model.kind: "model"
+  labels:
+    scenarios.ai.sap.com/id: "finetune-phi32"
+    executables.ai.sap.com/id: "phi32-finetune"
+    ai.sap.com/version: "1.0.0"
+spec:
+  imagePullSecrets:
+    - name: amagnani
+  entrypoint: mypipeline
+  templates:
+    - name: mypipeline
+      metadata:
+        labels:
+          ai.sap.com/resourcePlan: starter
+      outputs:
+        artifacts:
+          - name: finetuned-model
+            path: /app/model
+            globalName: finetuned-model
+            archive:
+              none: {}
+      container:
+        image: "docker.io/amagnani/house-price:04"
+        imagePullPolicy: Always
+        command: ["/bin/sh", "-c"]
+        args:
+          - >
+            set -e && echo "---Start Training---" && python /app/src/train.py && ls -lR /app/model && echo "---End Training---"
