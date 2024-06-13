@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: phi3vision
+  annotations:
+    scenarios.ai.sap.com/description: "Test for phi3 vision"
+    scenarios.ai.sap.com/name: "phi3-vision"
+    executables.ai.sap.com/description: "Test for phi3 vision"
+    executables.ai.sap.com/name: "phi3-vision-exec"
+  labels:
+    scenarios.ai.sap.com/id: "phi3-vision"
+    executables.ai.sap.com/id: "phi3-vision-test"
+    ai.sap.com/version: "1.0.0"
+spec:
+  imagePullSecrets:
+    - name: amagnani
+  entrypoint: phi3-vision-test
+  templates:
+    - name: phi3-vision-test
+      metadata:
+        labels:
+          ai.sap.com/resourcePlan: infer.s
+      container:
+        image: "docker.io/amagnani/transformers-ai-core:02"
+        imagePullPolicy: Always
+        command: ["/bin/sh", "-c"]
+        args:
+          - >
+            set -e && echo "---Start Test---" && python /app/src/server.py && echo "---End Test---"
