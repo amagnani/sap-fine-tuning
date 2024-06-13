@@ -21,7 +21,7 @@ spec:
         labels:
           ai.sap.com/resourcePlan: infer.l
       container:
-        image: "docker.io/amagnani/transformers-ai-core:03"
+        image: "docker.io/amagnani/transformers-ai-core:04"
         imagePullPolicy: Always
         command: ["/bin/sh", "-c"]
         args:
