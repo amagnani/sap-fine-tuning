@@ -10,7 +10,7 @@ metadata:
   labels:
     scenarios.ai.sap.com/id: "phi3-vision"
     executables.ai.sap.com/id: "phi3-vision-test"
-    ai.sap.com/version: "1.0.0"
+    ai.sap.com/version: "1.0.3"
 spec:
   imagePullSecrets:
     - name: amagnani
@@ -19,9 +19,9 @@ spec:
     - name: phi3-vision-test
       metadata:
         labels:
-          ai.sap.com/resourcePlan: infer.s
+          ai.sap.com/resourcePlan: infer.l
       container:
-        image: "docker.io/amagnani/transformers-ai-core:02"
+        image: "docker.io/amagnani/transformers-ai-core:03"
         imagePullPolicy: Always
         command: ["/bin/sh", "-c"]
         args:
