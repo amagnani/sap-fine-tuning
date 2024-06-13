@@ -10,7 +10,7 @@ metadata:
   labels:
     scenarios.ai.sap.com/id: "phi3-vision"
     executables.ai.sap.com/id: "phi3-vision-test"
-    ai.sap.com/version: "1.0.3"
+    ai.sap.com/version: "1.0.4"
 spec:
   imagePullSecrets:
     - name: amagnani
