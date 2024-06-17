@@ -35,5 +35,5 @@ spec:
           command: ["/bin/sh", "-c"]
           args:
             - >
-              set -e && echo "Starting" && gunicorn --chdir /app/src serve:app -b 0.0.0.0:9001 # filename `serve` flask variable `app`
+              set -e && echo "Starting" && gunicorn --chdir /app/src server:app -b 0.0.0.0:9001 # filename `server` flask variable `app`
   
