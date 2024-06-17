@@ -1,14 +1,14 @@
 apiVersion: ai.sap.com/v1alpha1
 kind: ServingTemplate
 metadata:
-  name: server-pipeline # executable ID, must be unique across your SAP AI Core instance, for example use `server-pipeline-yourname-1234`
+  name: server-phi3-vision # executable ID, must be unique across your SAP AI Core instance, for example use `server-pipeline-yourname-1234`
   annotations:
-    scenarios.ai.sap.com/description: "Exposing Phi3 vision multimodal model"
-    scenarios.ai.sap.com/name: "Sagenai Multimodal (Tutorial)"
+    scenarios.ai.sap.com/description: "ETest for phi3 vision"
+    scenarios.ai.sap.com/name: "phi3-vision"
     executables.ai.sap.com/description: "Create online server to interact with Phi3 Vision"
     executables.ai.sap.com/name: "phi3-vision-serve"
   labels:
-    scenarios.ai.sap.com/id: "phi3-vision-serve"
+    scenarios.ai.sap.com/id: "phi3-vision"
     ai.sap.com/version: "1.0"
 spec:
   template:
